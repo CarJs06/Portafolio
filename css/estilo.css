@@ -1,0 +1,125 @@
+/* Paleta de colores */
+:root {
+  --azul-oscuro: #0d2b5c;
+  --azul-claro: #2a5aa8;
+  --blanco: #ffffff;
+  --dorado: #d4af37;
+  --gris-claro: #f5f7fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--azul-oscuro);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-claro));
+  color: var(--blanco);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: var(--azul-claro);
+  padding: 0.8rem 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.navbar a {
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover {
+  background-color: var(--dorado);
+  color: var(--azul-oscuro);
+}
+
+/* SECCIONES DE TEMAS */
+main {
+  padding: 2rem 0;
+}
+
+.tema {
+  background: var(--blanco);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-left: 5px solid var(--dorado);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.tema h2 {
+  color: var(--azul-oscuro);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.tema p {
+  font-size: 1.05rem;
+}
+
+code {
+  background-color: #eef4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--azul-claro);
+  font-family: monospace;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
