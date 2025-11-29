@@ -33,15 +33,5 @@ El **80%** del valor corresponde al **desarrollo del contenido**, el cual ha sid
 
 ---
 
-### ✅ Estado del Proyecto
-
-- [x] Contenido técnico desarrollado (10 temas)
-- [x] Proyectos del curso enlazados (PDFs)
-- [x] Conclusión reflexiva incluida
-- [x] Diseño responsive y accesible
-- [x] Listo para publicar en GitHub Pages
-
----
-
 **¡Gracias por revisar mi portafolio!**  
 *Desarrollado con dedicación como parte de mi formación en la Universidad Tecnológica de Panamá.*
