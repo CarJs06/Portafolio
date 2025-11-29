@@ -5,7 +5,7 @@
 
 Este portafolio está publicado mediante **GitHub Pages** y puede consultarse en el siguiente enlace:
 
-🔗 **[https://github.com/CarJs06/Portafolio](https://carjs06.github.io/Portafolio/)**
+🔗 **https://carjs06.github.io/Portafolio/**
 
 ---
 ### 🛠️ Requisitos para Visualización Local
