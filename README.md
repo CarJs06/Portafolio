@@ -8,24 +8,6 @@ Este portafolio está publicado mediante **GitHub Pages** y puede consultarse en
 🔗 **https://github.com/CarJs06/Portafolio**
 
 ---
-
-### 📚 Criterios de Evaluación (según el PDF de la asignatura)
-
-| Criterio       | Puntaje (1-5) | Porcentaje | Estado      |
-|----------------|---------------|------------|-------------|
-| **Desarrollo** | 5             | 80%        | ✅ Completo |
-| Sustentación   | —             | 10%        | (Presencial)|
-| Puntualidad    | —             | 10%        | ✅ Entregado a tiempo |
-
-El **80%** del valor corresponde al **desarrollo del contenido**, el cual ha sido abordado con:
-- Explicaciones claras y técnicas
-- Ejemplos en pseudocódigo, C y Python
-- Comandos reales de configuración (Linux, MySQL, red)
-- Tablas de referencia
-- Enlaces a todos los proyectos en PDF
-
----
-
 ### 🛠️ Requisitos para Visualización Local
 
 - Navegador web moderno (Chrome, Firefox, Edge)
