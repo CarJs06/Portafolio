@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3. Estructuras Repetitivas – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>3. Estructuras Repetitivas</h1>
+
+      <p>
+        Las <strong>estructuras repetitivas</strong> (o bucles) permiten ejecutar un bloque de código varias veces mientras se cumpla una condición. 
+        Son esenciales para automatizar tareas repetitivas sin duplicar código.
+      </p>
+
+      <h2>Ciclo <code>for</code></h2>
+      <p>
+        Se utiliza cuando se conoce de antemano el número de iteraciones.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>Para i = 1 Hasta 5 Hacer
+    Escribir "Iteración: ", i
+FinPara</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>for (int i = 1; i <= 5; i++) {
+    printf("Iteración: %d\n", i);
+}</code></pre>
+      <!-- Espacio para imagen de diagrama de flujo for -->
+      <img src="../assets/diagrama-for.png" alt="Diagrama de flujo del ciclo for">
+
+      <h2>Ciclo <code>while</code></h2>
+      <p>
+        Evalúa una condición <strong>antes</strong> de cada iteración. Si es verdadera, ejecuta el bloque; si no, termina.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>i = 1
+Mientras (i <= 5) Hacer
+    Escribir "Iteración: ", i
+    i = i + 1
+FinMientras</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>int i = 1;
+while (i <= 5) {
+    printf("Iteración: %d\n", i);
+    i++;
+}</code></pre>
+      <!-- Espacio para imagen de diagrama de flujo while -->
+      <img src="../assets/diagrama-while.png" alt="Diagrama de flujo del ciclo while">
+
+      <h2>Ciclo <code>do-while</code></h2>
+      <p>
+        Similar al <code>while</code>, pero evalúa la condición <strong>después</strong> de la primera ejecución. 
+        Por lo tanto, el bloque se ejecuta <strong>al menos una vez</strong>.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>i = 1
+Hacer
+    Escribir "Iteración: ", i
+    i = i + 1
+Mientras (i <= 5)</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>int i = 1;
+do {
+    printf("Iteración: %d\n", i);
+    i++;
+} while (i <= 5);</code></pre>
+      <!-- Espacio para imagen de diagrama de flujo do-while -->
+      <img src="../assets/diagrama-do-while.png" alt="Diagrama de flujo del ciclo do-while">
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

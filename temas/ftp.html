@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>6. Servidor FTP + SSH en Linux – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>6. Servidor FTP + SSH en Linux</h1>
+
+      <h2>¿Qué es FTP y SSH?</h2>
+      <p>
+        <strong>FTP (File Transfer Protocol)</strong> es un protocolo estándar para transferir archivos entre un cliente y un servidor a través de una red. 
+        Sin embargo, FTP tradicional transmite datos (incluyendo contraseñas) en texto claro, lo que no es seguro.
+      </p>
+      <p>
+        <strong>SSH (Secure Shell)</strong> es un protocolo cifrado que permite acceso remoto seguro a servidores Linux. 
+        A través de SSH, se puede habilitar <strong>SFTP (SSH File Transfer Protocol)</strong>, una alternativa segura a FTP.
+      </p>
+
+      <h2>Utilidad</h2>
+      <p>
+        Estos servicios son esenciales para:
+      </p>
+      <ul>
+        <li>Subir y descargar archivos de servidores (ej. sitios web, bases de datos, scripts).</li>
+        <li>Administrar equipos remotos de forma segura.</li>
+        <li>Automatizar tareas de despliegue y respaldo.</li>
+        <li>Acceder a recursos en entornos académicos o empresariales sin exponer credenciales.</li>
+      </ul>
+
+      <h2>Instalación en Ubuntu Server</h2>
+      <p><strong>Servidor FTP (vsftpd):</strong></p>
+      <pre><code>sudo apt update
+sudo apt install vsftpd</code></pre>
+
+      <p><strong>Servidor SSH (normalmente ya instalado):</strong></p>
+      <pre><code>sudo apt install openssh-server</code></pre>
+
+      <!-- Espacio para imagen: instalación -->
+      <img src="../assets/ftp-instalacion-linux.png" alt="Instalación de vsftpd y openssh en terminal">
+
+      <h2>Configuración básica</h2>
+      <p><strong>1. Configurar vsftpd (<code>/etc/vsftpd.conf</code>):</strong></p>
+      <pre><code>write_enable=YES
+local_umask=022
+chroot_local_user=YES
+allow_writeable_chroot=YES
+pasv_enable=YES
+pasv_min_port=40000
+pasv_max_port=50000</code></pre>
+
+      <p><strong>2. Crear usuario FTP:</strong></p>
+      <pre><code>sudo adduser ftpuser</code></pre>
+
+      <p><strong>3. Reiniciar el servicio:</strong></p>
+      <pre><code>sudo systemctl restart vsftpd</code></pre>
+
+      <p><strong>4. Habilitar SFTP:</strong><br>
+        SFTP funciona automáticamente al instalar <code>openssh-server</code>. 
+        Los usuarios existentes pueden conectarse mediante SFTP sin configuración adicional.</p>
+
+      <!-- Espacio para imagen: archivo de configuración -->
+      <img src="../assets/ftp-config-vsftpd.png" alt="Archivo de configuración vsftpd.conf">
+
+      <h2>Comandos útiles</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Comando</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>sudo systemctl status vsftpd</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Ver estado del servidor FTP.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>sudo ufw allow 20:21/tcp</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Abrir puertos FTP en el firewall.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>sudo ufw allow 40000:50000/tcp</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Abrir rango de puertos pasivos.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>sftp usuario@ip</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Conectarse vía SFTP desde terminal Linux.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>ssh usuario@ip</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Acceso remoto seguro vía SSH.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Implementación con clientes en Windows</h2>
+      <p><strong>1. FileZilla (para FTP/SFTP):</strong></p>
+      <ul>
+        <li>Protocolo: <code>FTP</code> o <code>SFTP</code>.</li>
+        <li>Host: dirección IP de la VM Linux.</li>
+        <li>Usuario y contraseña: del usuario creado (ej. <code>ftpuser</code>).</li>
+        <li>Para SFTP, usa puerto <code>22</code>.</li>
+      </ul>
+
+      <p><strong>2. PuTTY (para SSH):</strong></p>
+      <ul>
+        <li>Abre PuTTY, ingresa la IP de la VM.</li>
+        <li>Deja el puerto en <code>22</code> y tipo de conexión en <code>SSH</code>.</li>
+        <li>Al conectarse, inicia sesión con credenciales de Linux.</li>
+      </ul>
+      <p>También se puede usar <strong>WinSCP</strong> para transferencias gráficas seguras vía SFTP.</p>
+
+      <!-- Espacio para imagen: FileZilla y PuTTY -->
+      <img src="../assets/ftp-clientes-windows.png" alt="Conexión con FileZilla y PuTTY desde Windows">
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

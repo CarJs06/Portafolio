@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>4. Programación en C – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>4. Programación en C</h1>
+
+      <h2>¿Qué es el lenguaje C?</h2>
+      <p>
+        <strong>C</strong> es un lenguaje de programación de propósito general, imperativo y estructurado, 
+        desarrollado en 1972 por Dennis Ritchie en los laboratorios Bell. 
+        Es conocido por su eficiencia, cercanía al hardware y portabilidad, y ha sido la base para muchos lenguajes modernos como C++, Java y Python.
+      </p>
+
+      <h2>Ventajas y desventajas</h2>
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Alto rendimiento y control directo de la memoria (punteros).</li>
+        <li>Portabilidad: se puede compilar en múltiples plataformas.</li>
+        <li>Base para entender la arquitectura de computadoras y sistemas operativos.</li>
+        <li>Rico en operadores y funciones de bajo nivel.</li>
+      </ul>
+
+      <p><strong>Desventajas:</strong></p>
+      <ul>
+        <li>No es orientado a objetos (a diferencia de C++ o Java).</li>
+        <li>Falta de manejo automático de memoria (sin recolector de basura).</li>
+        <li>Mayor riesgo de errores (ej. desbordamiento de búfer, fugas de memoria).</li>
+        <li>Curva de aprendizaje más pronunciada para principiantes.</li>
+      </ul>
+
+      <h2>Sintaxis básica</h2>
+      <p>
+        Un programa en C sigue una estructura estándar:
+      </p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    // Código del programa
+    return 0;
+}</code></pre>
+      <p>
+        - <code>#include</code>: incluye bibliotecas.
+        <br>
+        - <code>main()</code>: función principal donde inicia la ejecución.
+        <br>
+        - <code>return 0</code>: indica que el programa terminó correctamente.
+      </p>
+
+      <h2>Ejemplos cortos</h2>
+
+      <h3>Hola Mundo</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    printf("¡Hola, mundo!\n");
+    return 0;
+}</code></pre>
+
+      <h3>Lectura y escritura de enteros</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int numero;
+    printf("Ingrese un número: ");
+    scanf("%d", &numero);
+    printf("El doble es: %d\n", numero * 2);
+    return 0;
+}</code></pre>
+
+      <h3>Uso de condicionales</h3>
+      <pre><code>#include &lt;stdio.h&gt;
+int main() {
+    int edad;
+    printf("Edad: ");
+    scanf("%d", &edad);
+    if (edad >= 18)
+        printf("Es mayor de edad.\n");
+    else
+        printf("Es menor de edad.\n");
+    return 0;
+}</code></pre>
+
+      <h2>Comandos más usados en C</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Comando</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>#include</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Incluye archivos de cabecera (bibliotecas estándar o personalizadas).</td>
+          </tr>
+          <tr style="background-color: #ffffff; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>printf()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Imprime texto o valores en la consola.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>scanf()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Lee datos ingresados por el usuario.</td>
+          </tr>
+          <tr style="background-color: #ffffff; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>if / else</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Estructuras condicionales para tomar decisiones.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>for / while / do-while</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Estructuras repetitivas (bucles).</td>
+          </tr>
+          <tr style="background-color: #ffffff; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>int main()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Función principal donde comienza la ejecución del programa.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd; border: 1px solid #ccc;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>//</code> o <code>/* */</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Comentarios (no se ejecutan).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

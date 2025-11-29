@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7. Cisco Packet Tracer – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>7. Cisco Packet Tracer</h1>
+
+      <h2>¿Qué es Cisco Packet Tracer?</h2>
+      <p>
+        <strong>Cisco Packet Tracer</strong> es una herramienta de simulación de redes desarrollada por Cisco Systems. 
+        Permite diseñar, configurar y probar redes de datos, voz y seguridad en un entorno virtual, 
+        ideal para el aprendizaje de conceptos de redes y protocolos de comunicación.
+      </p>
+
+      <h2>Utilidad</h2>
+      <p>
+        Esta herramienta es fundamental para:
+      </p>
+      <ul>
+        <li>Entender la topología y funcionamiento de redes LAN/WAN.</li>
+        <li>Practicar configuración de routers, switches y dispositivos finales.</li>
+        <li>Simular escenarios reales sin necesidad de hardware físico.</li>
+        <li>Prepararse para certificaciones como CCNA.</li>
+        <li>Validar conectividad entre computadoras, servidores, tablets y otros dispositivos.</li>
+      </ul>
+
+      <h2>Instalación</h2>
+      <p>
+        Cisco Packet Tracer está disponible gratuitamente para estudiantes inscritos en la red NetAcad de Cisco. 
+        Los pasos generales son:
+      </p>
+      <ol>
+        <li>Ingresar a <a href="https://www.netacad.com/" target="_blank">NetAcad</a> con cuenta institucional.</li>
+        <li>Ir a <strong>Resources → Download Packet Tracer</strong>.</li>
+        <li>Descargar la versión compatible con tu sistema (Windows, Linux o macOS).</li>
+        <li>Ejecutar el instalador y seguir las instrucciones.</li>
+      </ol>
+      <!-- Espacio para imagen: instalación -->
+      <img src="../assets/cisco-pt-instalacion.png" alt="Pantalla de instalación de Cisco Packet Tracer">
+
+      <h2>Diseño de una Red LAN con Comunicación Interdispositivo y Pruebas de Conectividad</h2>
+      <p>
+        A continuación, se describe una guía simplificada para crear una red local en la que computadoras, servidores y tablets 
+        puedan comunicarse entre sí mediante uno o más routers, y verificar su conectividad usando el comando <code>ping</code>.
+      </p>
+
+      <h3>Paso 1: Agregar dispositivos</h3>
+      <ul>
+        <li>Arrastra al área de trabajo:
+          <ul>
+            <li>2 PCs</li>
+            <li>1 Servidor</li>
+            <li>1 Tablet</li>
+            <li>1 Router (ej. modelo 2911)</li>
+            <li>1 Switch (ej. modelo 2960)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Paso 2: Conectar los dispositivos</h3>
+      <ul>
+        <li>Conecta todos los dispositivos finales (PCs, servidor, tablet) al <strong>switch</strong> usando cables <em>Copper Straight-Through</em>.</li>
+        <li>Conecta el <strong>switch</strong> al <strong>router</strong> con el mismo tipo de cable.</li>
+      </ul>
+
+      <h3>Paso 3: Configurar direcciones IP</h3>
+      <ul>
+        <li>En cada dispositivo final, ve a la pestaña <strong>Desktop → IP Configuration</strong>.</li>
+        <li>Asigna direcciones en la misma red, por ejemplo:
+          <ul>
+            <li>PC1: <code>192.168.1.10</code></li>
+            <li>PC2: <code>192.168.1.11</code></li>
+            <li>Servidor: <code>192.168.1.20</code></li>
+            <li>Tablet: <code>192.168.1.30</code></li>
+          </ul>
+        </li>
+        <li>Máscara de subred: <code>255.255.255.0</code>.</li>
+        <li>Gateway predeterminado (opcional para LAN local): <code>192.168.1.1</code> (dirección del router).</li>
+      </ul>
+
+      <h3>Paso 4: Configurar el router (opcional para comunicación local simple)</h3>
+      <p>
+        Si todos los dispositivos están en la misma red y conectados al mismo switch, <strong>no es necesario configurar el router</strong> para que se comuniquen entre sí. 
+        El switch gestiona la comunicación a nivel de capa 2 (MAC).
+      </p>
+      <p>
+        Si deseas simular múltiples redes (ej. VLANs o subredes), entonces sí debes configurar interfaces en el router.
+      </p>
+
+      <h3>Paso 5: Verificar conectividad con <code>ping</code></h3>
+      <ul>
+        <li>En cualquier PC, ve a <strong>Desktop → Command Prompt</strong>.</li>
+        <li>Ejecuta: <code>ping 192.168.1.20</code> (para probar con el servidor).</li>
+        <li>Si recibes respuestas, la comunicación es exitosa.</li>
+        <li>Repite entre otros dispositivos (PC ↔ Tablet, Servidor ↔ PC, etc.).</li>
+      </ul>
+      <!-- Espacio para imagen: topología completa -->
+      <img src="../assets/cisco-pt-topologia-lan.png" alt="Red LAN en Cisco Packet Tracer con PCs, servidor, tablet y router">
+
+      <h3>Consejo adicional</h3>
+      <p>
+        Para simular redes remotas (WAN), agrega un segundo router y conecta ambos mediante enlace serial. 
+        Configura enrutamiento estático o dinámico (RIP, OSPF) para permitir comunicación entre subredes.
+      </p>
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

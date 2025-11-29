@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>10. Replicación MySQL – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>10. Replicación de Bases de Datos MySQL</h1>
+
+      <h2>¿Qué es la replicación?</h2>
+      <p>
+        La <strong>replicación</strong> es un proceso mediante el cual los datos de una base de datos (llamada <em>maestro</em> o <em>fuente</em>) 
+        se copian automáticamente a una o más instancias secundarias (llamadas <em>esclavos</em> o <em>réplicas</em>). 
+        En MySQL, se utiliza principalmente para:
+      </p>
+      <ul>
+        <li>Alta disponibilidad (si falla el maestro, se puede usar un esclavo).</li>
+        <li>Balanceo de carga (lecturas desde esclavos, escrituras en maestro).</li>
+        <li>Copias de seguridad sin afectar el rendimiento del servidor principal.</li>
+      </ul>
+
+      <h2>Ventajas y desventajas</h2>
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Mejora la disponibilidad y tolerancia a fallos.</li>
+        <li>Permite escalar horizontalmente las operaciones de lectura.</li>
+        <li>Facilita el análisis de datos sin impactar al sistema productivo.</li>
+      </ul>
+
+      <p><strong>Desventajas:</strong></p>
+      <ul>
+        <li>Replicación asíncrona: los esclavos pueden estar ligeramente desfasados (<em>lag</em>).</li>
+        <li>Configuración compleja si hay fallos o inconsistencias.</li>
+        <li>Requiere red estable y baja latencia para buen rendimiento.</li>
+      </ul>
+
+      <h2>Escenario implementado</h2>
+      <ul>
+        <li><strong>Maestro</strong>: Windows 10/11 con <strong>MySQL 8.0</strong> instalado.</li>
+        <li><strong>Esclavo 1</strong>: Máquina virtual con <strong>Ubuntu Server 22.04 LTS</strong> + MySQL.</li>
+        <li><strong>Esclavo 2</strong>: Segunda VM con <strong>Ubuntu Server 22.04 LTS</strong> + MySQL.</li>
+        <li>Todos los equipos en la misma red local (modo puente en VirtualBox).</li>
+        <li>IPs de ejemplo:
+          <ul>
+            <li>Maestro: <code>192.168.1.100</code></li>
+            <li>Esclavo 1: <code>192.168.1.101</code></li>
+            <li>Esclavo 2: <code>192.168.1.102</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- ================== CONFIGURACIÓN DEL MAESTRO (WINDOWS) ================== -->
+      <h2>1. Configuración del Maestro (Windows)</h2>
+      <p><strong>Paso 1: Editar <code>my.ini</code></strong> (ubicado en <code>C:\ProgramData\MySQL\MySQL Server 8.0\</code>)</p>
+      <pre><code>[mysqld]
+server-id=1
+log-bin=mysql-bin
+binlog-do-db=empresa  ; Base de datos a replicar
+bind-address=0.0.0.0  ; Permitir conexiones remotas
+port=3306</code></pre>
+
+      <p><strong>Paso 2: Reiniciar el servicio MySQL</strong> desde <em>Servicios de Windows</em>.</p>
+
+      <p><strong>Paso 3: Crear usuario de replicación</strong></p>
+      <pre><code>CREATE USER 'replica_user'@'%' IDENTIFIED BY 'clave_segura_123';
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+FLUSH PRIVILEGES;</code></pre>
+
+      <p><strong>Paso 4: Obtener estado del binlog</strong></p>
+      <pre><code>SHOW MASTER STATUS;</code></pre>
+      <p>Anote los valores de <code>File</code> (ej. <code>mysql-bin.000002</code>) y <code>Position</code> (ej. <code>157</code>).</p>
+
+      <!-- ================== CONFIGURACIÓN DEL ESCLAVO (LINUX) ================== -->
+      <h2>2. Configuración de los Esclavos (Ubuntu Server)</h2>
+      <p><strong>Paso 1: Instalar MySQL</strong></p>
+      <pre><code>sudo apt update
+sudo apt install mysql-server</code></pre>
+
+      <p><strong>Paso 2: Editar <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code></strong></p>
+      <pre><code>[mysqld]
+server-id=2          ; Para esclavo 1 (usa 3 para esclavo 2)
+bind-address=0.0.0.0
+port=3306</code></pre>
+
+      <p><strong>Paso 3: Reiniciar MySQL</strong></p>
+      <pre><code>sudo systemctl restart mysql</code></pre>
+
+      <p><strong>Paso 4: Configurar conexión al maestro</strong></p>
+      <pre><code>CHANGE MASTER TO
+  MASTER_HOST='192.168.1.100',
+  MASTER_USER='replica_user',
+  MASTER_PASSWORD='clave_segura_123',
+  MASTER_LOG_FILE='mysql-bin.000002',
+  MASTER_LOG_POS=157;</code></pre>
+
+      <p><strong>Paso 5: Iniciar la replicación</strong></p>
+      <pre><code>START SLAVE;</code></pre>
+
+      <p><strong>Paso 6: Verificar estado</strong></p>
+      <pre><code>SHOW SLAVE STATUS\G</code></pre>
+      <p>Verifique que <code>Slave_IO_Running</code> y <code>Slave_SQL_Running</code> estén en <code>Yes</code>, y que <code>Seconds_Behind_Master</code> sea <code>0</code> o bajo.</p>
+
+      <p>Repita los pasos para el <strong>Esclavo 2</strong>, cambiando <code>server-id=3</code> y asegurándose de que tenga IP única.</p>
+
+      <!-- ================== PRUEBAS ================== -->
+      <h2>3. Pruebas de replicación</h2>
+      <p>1. En el <strong>maestro</strong>, ejecute:</p>
+      <pre><code>USE empresa;
+INSERT INTO empleados (nombre, cargo) VALUES ('Laura Torres', 'Analista');</code></pre>
+
+      <p>2. En cada <strong>esclavo</strong>, ejecute:</p>
+      <pre><code>USE empresa;
+SELECT * FROM empleados;</code></pre>
+      <p>El nuevo registro debe aparecer automáticamente.</p>
+
+      <!-- ================== CONSIDERACIONES DE SEGURIDAD ================== -->
+      <h2>Consideraciones adicionales</h2>
+      <ul>
+        <li>Asegúrese de que el firewall de Windows permita conexiones entrantes al puerto <code>3306</code>.</li>
+        <li>En Ubuntu, puede usar <code>ufw</code> para abrir el puerto si es necesario (aunque el esclavo solo inicia conexiones salientes).</li>
+        <li>Use contraseñas fuertes y evite exponer MySQL a internet.</li>
+        <li>Para replicación en producción, se recomienda usar conexiones SSL.</li>
+      </ul>
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

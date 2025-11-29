@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5. Máquinas Virtuales – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>5. Máquinas Virtuales</h1>
+
+      <h2>¿Qué son las máquinas virtuales?</h2>
+      <p>
+        Una <strong>máquina virtual (VM)</strong> es un entorno emulado de un sistema informático que se ejecuta dentro de otro sistema físico (llamado <em>host</em>). 
+        Permite ejecutar un sistema operativo completo (el <em>guest</em>) sin afectar al sistema principal, utilizando recursos virtualizados como CPU, memoria, disco y red.
+      </p>
+
+      <h2>Utilidad de las máquinas virtuales</h2>
+      <p>
+        Las máquinas virtuales son esenciales en entornos de desarrollo, pruebas, educación y producción, ya que permiten:
+      </p>
+      <ul>
+        <li>Probar software o sistemas operativos sin riesgo para el equipo físico.</li>
+        <li>Simular redes y servidores (como FTP, DNS, Active Directory).</li>
+        <li>Aislar entornos para mayor seguridad y estabilidad.</li>
+        <li>Ejecutar múltiples sistemas operativos en una sola computadora.</li>
+        <li>Replicar entornos de producción para desarrollo o capacitación.</li>
+      </ul>
+
+      <h2>¿Cómo instalar una máquina virtual?</h2>
+      <p>
+        El proceso general es el siguiente (usando herramientas como <strong>Oracle VirtualBox</strong> o <strong>VMware Workstation</strong>):
+      </p>
+      <ol>
+        <li><strong>Instalar el software de virtualización</strong> (ej. VirtualBox desde <a href="https://www.virtualbox.org/" target="_blank">virtualbox.org</a>).</li>
+        <li><strong>Crear una nueva máquina virtual</strong>: especificar nombre, tipo de SO y versión.</li>
+        <li><strong>Asignar recursos</strong>: memoria RAM, número de CPUs, tamaño de disco duro virtual.</li>
+        <li><strong>Seleccionar medio de instalación</strong>: ISO del sistema operativo (ej. Ubuntu Server 22.04, Windows Server 2022).</li>
+        <li><strong>Iniciar la VM y seguir el asistente de instalación</strong> del sistema operativo.</li>
+        <li><strong>Configurar red, usuarios y servicios</strong> según los requerimientos del proyecto.</li>
+      </ol>
+      <!-- Espacio para imagen: instalación de VM -->
+      <img src="../assets/vm-instalacion-proceso.png" alt="Pasos de instalación de una máquina virtual">
+
+      <h2>Ejemplos prácticos desarrollados</h2>
+
+      <h3>1. Ubuntu Server 22.04 LTS</h3>
+      <p>
+        - Sistema operativo: Linux sin interfaz gráfica (CLI).<br>
+        - Configuración: red estática, usuario con permisos <code>sudo</code>, servidor SSH activado.<br>
+        - Uso: base para servidores FTP, MySQL y replicación.
+      </p>
+      <!-- Espacio para imagen: Ubuntu Server -->
+      <img src="../assets/ubuntu-server-vm.png" alt="Máquina virtual con Ubuntu Server">
+
+      <h3>2. Windows Server 2022</h3>
+      <p>
+        - Sistema operativo: Windows Server con rol de <strong>Active Directory Domain Services (AD DS)</strong>.<br>
+        - Configuración: nombre de dominio <code>utp.local</code>, creación de usuarios y políticas de grupo.<br>
+        - Uso: simulación de entorno empresarial para gestión centralizada.
+      </p>
+      <!-- Espacio para imagen: Windows Server -->
+      <img src="../assets/windows-server-vm.png" alt="Máquina virtual con Windows Server 2022">
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

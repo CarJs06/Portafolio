@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2. Estructuras de Control – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>2. Estructuras de Control</h1>
+
+      <p>
+        Las estructuras de control permiten a los programas tomar decisiones en tiempo de ejecución, 
+        ejecutando ciertos bloques de código solo si se cumplen determinadas condiciones. 
+        Son fundamentales en la programación estructurada.
+      </p>
+
+      <h2>Operadores de control básicos (relacionales)</h2>
+      <p>
+        Los operadores relacionales comparan dos valores y devuelven un resultado lógico (<code>verdadero</code> o <code>falso</code>):
+      </p>
+      <ul>
+        <li><code>==</code> : igual que</li>
+        <li><code>!=</code> : diferente de</li>
+        <li><code>&gt;</code> : mayor que</li>
+        <li><code>&lt;</code> : menor que</li>
+        <li><code>&gt;=</code> : mayor o igual que</li>
+        <li><code>&lt;=</code> : menor o igual que</li>
+      </ul>
+      <!-- Espacio para imagen de tabla de operadores -->
+      <img src="../assets/tabla-operadores-relacionales.png" alt="Tabla de operadores relacionales">
+
+      <h2>Operadores lógicos básicos</h2>
+      <p>
+        Permiten combinar o negar condiciones:
+      </p>
+      <ul>
+        <li><code>&&</code> (Y lógico): verdadero si ambas condiciones son verdaderas.</li>
+        <li><code>||</code> (O lógico): verdadero si al menos una condición es verdadera.</li>
+        <li><code>!</code> (NO lógico): niega el valor de una condición.</li>
+      </ul>
+      <p><strong>Ejemplo:</strong> <code>(edad >= 18) && (tiene_licencia == true)</code></p>
+
+      <h2>Sentencia <code>if</code> simple</h2>
+      <p>
+        Ejecuta un bloque de código solo si una condición es verdadera.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>Si (temperatura > 30) Entonces
+    Escribir "Hace mucho calor"
+FinSi</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>if (temperatura > 30) {
+    printf("Hace mucho calor\n");
+}</code></pre>
+
+      <h2>Sentencia <code>if-else</code></h2>
+      <p>
+        Permite ejecutar un bloque si la condición es verdadera, y otro si es falsa.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>Si (nota >= 7) Entonces
+    Escribir "Aprobado"
+Sino
+    Escribir "Reprobado"
+FinSi</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>if (nota >= 7) {
+    printf("Aprobado\n");
+} else {
+    printf("Reprobado\n");
+}</code></pre>
+
+      <h2>Sentencia <code>if - else if - else</code></h2>
+      <p>
+        Permite evaluar múltiples condiciones en cadena.
+      </p>
+      <h3>Pseudocódigo</h3>
+      <pre><code>Si (pH == 7) Entonces
+    Escribir "Neutro"
+Sino Si (pH > 7) Entonces
+    Escribir "Básico"
+Sino
+    Escribir "Ácido"
+FinSi</code></pre>
+
+      <h3>En lenguaje C</h3>
+      <pre><code>if (pH == 7) {
+    printf("Neutro\n");
+} else if (pH > 7) {
+    printf("Básico\n");
+} else {
+    printf("Ácido\n");
+}</code></pre>
+      <!-- Espacio para diagrama de flujo de if-else if -->
+      <img src="../assets/diagrama-if-elseif.png" alt="Diagrama de flujo con if-else if-else">
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

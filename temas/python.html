@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>9. Programación en Python – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>9. Programación en Python</h1>
+
+      <h2>¿Qué es Python?</h2>
+      <p>
+        <strong>Python</strong> es un lenguaje de programación de alto nivel, interpretado, multiparadigma y de código abierto. 
+        Fue creado por Guido van Rossum en 1991 y se destaca por su sintaxis clara, legible y enfocada en la productividad del desarrollador.
+      </p>
+
+      <h2>Utilidad y ventajas</h2>
+      <p><strong>Utilidad:</strong></p>
+      <ul>
+        <li>Desarrollo de aplicaciones de escritorio, web y móviles.</li>
+        <li>Automatización de tareas repetitivas.</li>
+        <li>Análisis de datos, inteligencia artificial y ciencia de datos.</li>
+        <li>Prototipado rápido y desarrollo educativo.</li>
+        <li>Integración con bases de datos y sistemas embebidos.</li>
+      </ul>
+
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Sintaxis simple y fácil de aprender.</li>
+        <li>Amplia biblioteca estándar y ecosistema de paquetes.</li>
+        <li>Multiplataforma (Windows, Linux, macOS).</li>
+        <li>Soporte para POO, funcional y programación estructurada.</li>
+        <li>Comunidad activa y documentación extensa.</li>
+      </ul>
+
+      <h2>Sintaxis básica</h2>
+      <p>Un programa sencillo en Python no requiere declaración de tipos ni puntos y comas:</p>
+      <pre><code># Hola Mundo
+print("¡Hola, mundo!")
+
+# Variables
+nombre = "Ana"
+edad = 20
+print(f"{nombre} tiene {edad} años.")
+
+# Condición
+if edad >= 18:
+    print("Es mayor de edad.")
+else:
+    print("Es menor de edad.")
+
+# Bucle
+for i in range(1, 6):
+    print(f"Iteración {i}")</code></pre>
+
+      <h2>Comandos esenciales de Python</h2>
+      <table style="width: 10.3rem; border-collapse: collapse; margin: 1.5rem 0; width: 100%;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Comando</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>print()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Muestra texto o variables en consola.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>input()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Lee entrada del usuario como cadena.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>if / elif / else</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Estructuras condicionales.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>for / while</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Bucles para repetición.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>def</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Define una función.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>import</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Importa módulos o bibliotecas.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>len(), range(), type()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Funciones integradas comunes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Módulo Tkinter</h2>
+      <h3>¿Qué es?</h3>
+      <p>
+        <strong>Tkinter</strong> es la biblioteca estándar de Python para crear interfaces gráficas de usuario (GUI). 
+        Viene incluida con la instalación oficial de Python, por lo que no requiere instalación adicional.
+      </p>
+
+      <h3>Sintaxis básica</h3>
+      <pre><code>import tkinter as tk
+
+# Crear ventana principal
+ventana = tk.Tk()
+ventana.title("Mi Aplicación")
+ventana.geometry("300x200")
+
+# Agregar etiqueta
+etiqueta = tk.Label(ventana, text="¡Hola desde Tkinter!")
+etiqueta.pack(pady=20)
+
+# Ejecutar interfaz
+ventana.mainloop()</code></pre>
+
+      <h3>Widgets y comandos comunes en Tkinter</h3>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Widget/Comando</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>Tk()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Crea la ventana principal.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>Label</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Muestra texto o imágenes.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>Button</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Botón ejecutable.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>Entry</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Campo de entrada de texto.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>pack() / grid()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Gestores de geometría para ubicar widgets.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>mainloop()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Inicia el bucle de eventos de la GUI.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Conexión y modificación de bases de datos SQL</h2>
+      <h3>¿Qué es <code>mysql-connector-python</code>?</h3>
+      <p>
+        Es una biblioteca oficial de Oracle que permite a Python conectarse y operar con bases de datos MySQL. 
+        Permite ejecutar consultas, insertar, actualizar y eliminar registros de forma segura.
+      </p>
+
+      <h3>Instalación</h3>
+      <pre><code>pip install mysql-connector-python</code></pre>
+
+      <h3>Ejemplo de conexión y consulta</h3>
+      <pre><code>import mysql.connector
+
+# Conexión
+conexion = mysql.connector.connect(
+    host="localhost",
+    user="usuario_app",
+    password="clave123",
+    database="empresa"
+)
+
+cursor = conexion.cursor()
+
+# Insertar registro
+cursor.execute(
+    "INSERT INTO empleados (nombre, cargo, salario) VALUES (%s, %s, %s)",
+    ("Carlos Méndez", "Desarrollador", 1200.00)
+)
+conexion.commit()
+
+# Consultar registros
+cursor.execute("SELECT * FROM empleados")
+resultados = cursor.fetchall()
+for fila in resultados:
+    print(fila)
+
+# Cerrar conexión
+cursor.close()
+conexion.close()</code></pre>
+
+      <h3>Comandos y métodos comunes</h3>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Comando/Método</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>mysql.connector.connect()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Establece conexión con MySQL.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>cursor()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Crea un cursor para ejecutar consultas.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>execute()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Ejecuta una sentencia SQL.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>commit()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Confirma cambios (para INSERT/UPDATE/DELETE).</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>fetchall()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Recupera todos los resultados de una consulta.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>close()</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Cierra cursor o conexión.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="sql.html">8. Bases de Datos SQL</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>

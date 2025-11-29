@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>8. Bases de Datos SQL – Portafolio</title>
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Portafolio Académico</h1>
+      <p>Desarrollo Lógico y Algoritmo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="contenido-tema">
+      <h1>8. Bases de Datos SQL</h1>
+
+      <h2>¿Qué son las bases de datos y SQL?</h2>
+      <p>
+        Una <strong>base de datos</strong> es un conjunto organizado de datos que se almacenan y acceden electrónicamente. 
+        Las bases de datos relacionales almacenan la información en tablas compuestas por filas (registros) y columnas (atributos).
+      </p>
+      <p>
+        <strong>SQL (Structured Query Language)</strong> es el lenguaje estándar para gestionar y manipular bases de datos relacionales. 
+        Permite crear, consultar, actualizar y eliminar datos de forma eficiente.
+      </p>
+
+      <h2>Utilidad</h2>
+      <p>
+        Las bases de datos SQL son fundamentales para:
+      </p>
+      <ul>
+        <li>Almacenar información de manera estructurada y segura.</li>
+        <li>Soportar aplicaciones web, móviles y de escritorio.</li>
+        <li>Generar reportes y análisis de datos.</li>
+        <li>Implementar sistemas empresariales (facturación, inventario, usuarios, etc.).</li>
+        <li>Integrarse con lenguajes de programación como C, Python y PHP.</li>
+      </ul>
+
+      <h2>Instalación de MySQL en Windows</h2>
+      <p>
+        Para instalar MySQL Server en Windows, se siguen estos pasos:
+      </p>
+      <ol>
+        <li>Descargar el instalador desde <a href="https://dev.mysql.com/downloads/installer/" target="_blank">MySQL Installer</a>.</li>
+        <li>Ejecutar el archivo <code>mysql-installer-web-community-*.msi</code>.</li>
+        <li>Seleccionar <strong>"Developer Default"</strong> o <strong>"Server only"</strong>.</li>
+        <li>Seguir el asistente: configurar contraseña de root, crear usuario adicional (opcional).</li>
+        <li>Finalizar la instalación y verificar que el servicio <code>MySQL80</code> esté en ejecución (en <em>Servicios</em> de Windows).</li>
+      </ol>
+      <p>
+        Opcionalmente, se puede instalar <strong>MySQL Workbench</strong> para una interfaz gráfica de administración.
+      </p>
+
+      <h2>Creación y configuración básica</h2>
+      <p><strong>1. Conectarse al servidor (desde línea de comandos):</strong></p>
+      <pre><code>mysql -u root -p</code></pre>
+
+      <p><strong>2. Crear una base de datos:</strong></p>
+      <pre><code>CREATE DATABASE empresa;</code></pre>
+
+      <p><strong>3. Usar la base de datos:</strong></p>
+      <pre><code>USE empresa;</code></pre>
+
+      <p><strong>4. Crear una tabla:</strong></p>
+      <pre><code>CREATE TABLE empleados (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    cargo VARCHAR(50),
+    salario DECIMAL(10,2)
+);</code></pre>
+
+      <p><strong>5. Crear un usuario con permisos limitados:</strong></p>
+      <pre><code>CREATE USER 'usuario_app'@'localhost' IDENTIFIED BY 'clave123';
+GRANT SELECT, INSERT, UPDATE ON empresa.* TO 'usuario_app'@'localhost';</code></pre>
+
+      <h2>Comandos SQL básicos (con tabla de referencia)</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background-color: #2a5aa8; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1; solid #ccc;">Comando</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ccc;">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>CREATE DATABASE</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Crea una nueva base de datos.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>CREATE TABLE</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Define una nueva tabla con columnas y restricciones.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>INSERT INTO</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Agrega nuevos registros a una tabla.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>SELECT</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Consulta datos de una o más tablas.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>UPDATE</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Modifica registros existentes.</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>DELETE FROM</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Elimina registros de una tabla.</td>
+          </tr>
+          <tr style="background-color: #f9fbfd;">
+            <td style="padding: 10px; border: 1px solid #ccc;"><code>DROP TABLE</code></td>
+            <td style="padding: 10px; border: 1px solid #ccc;">Elimina una tabla completa (estructura y datos).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Botones de navegación -->
+      <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+
+      <h3 style="margin-top: 2rem;">Explorar otras secciones:</h3>
+      <nav class="navbar temas-list" style="margin-top: 1rem;">
+        <ul>
+          <li><a href="intro.html">1. Introducción</a></li>
+          <li><a href="control.html">2. Estructuras de Control</a></li>
+          <li><a href="repetitivas.html">3. Estructuras Repetitivas</a></li>
+          <li><a href="c.html">4. Programación en C</a></li>
+          <li><a href="vm.html">5. Máquinas Virtuales</a></li>
+          <li><a href="ftp.html">6. Servidor FTP</a></li>
+          <li><a href="cisco.html">7. Cisco Packet Tracer</a></li>
+          <li><a href="python.html">9. Python</a></li>
+          <li><a href="replica.html">10. Replicación MySQL</a></li>
+          <li><a href="proyectos.html">Proyectos del Curso</a></li>
+          <li><a href="conclusion.html">Conclusión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 - Universidad Tecnológica de Panamá</p>
+    </div>
+  </footer>
+
+</body>
+</html>
